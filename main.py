@@ -28,9 +28,13 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
+#statické veličiny
+
 oddelovac = "-" * 49
 oddelovac_rovnase = "=" * 49
-# 1. úvod, zadání uživatele a ověření, zda je registrován a zadal správné heslo
+
+# 1. Akční kod
+# 1.1 úvod, zadání uživatele a ověření, zda je registrován a zadal správné heslo
 
 print(oddelovac_rovnase)
 print(f"{'-' * 17} {'TEXT Analysis':^10} {'-' * 17}")
@@ -63,3 +67,63 @@ else:
 
 print(oddelovac)
 
+# 1.2. práce s textem
+
+available_texts = [1,2,3]
+text_choice = input("Enter a number btw. 1 and 3 to select: ")
+if text_choice.isalpha():
+    print("Wrong value! Should be only numerals! Terminating the program...")
+    quit()
+elif not text_choice == "1" and text_choice == "2" and text_choice == "3":
+    print("Wrong range! Terminating the program...")
+    quit()
+else:
+    print(oddelovac)
+#počet slov
+pocet_slov = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo not in pocet_slov:
+        pocet_slov[slovo] = 1
+    else:
+        pocet_slov[slovo] = pocet_slov[slovo] + 1
+print(sum(pocet_slov.values()))
+
+#počet slov s velkým písmenem
+pocet_slov_title = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo.istitle():
+        if slovo not in pocet_slov_title:
+            pocet_slov_title[slovo] = 1
+        else:
+            pocet_slov_title[slovo] = pocet_slov_title[slovo] + 1
+print(sum(pocet_slov_title.values()))
+
+#počet slov BIG
+pocet_slov_BIG = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo.isupper():
+        if slovo not in pocet_slov_BIG:
+            pocet_slov_BIG[slovo] = 1
+        else:
+            pocet_slov_BIG[slovo] = pocet_slov_BIG[slovo] + 1
+print(sum(pocet_slov_BIG.values()))
+
+#počet slov LOWER
+pocet_slov_LOWER = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo.islower():
+        if slovo not in pocet_slov_LOWER:
+            pocet_slov_LOWER[slovo] = 1
+        else:
+            pocet_slov_LOWER[slovo] = pocet_slov_LOWER[slovo] + 1
+print(sum(pocet_slov_LOWER.values()))
+
+#počet slov NUMERIC
+pocet_slov_num = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo.isnumeric():
+        if slovo not in pocet_slov_num:
+            pocet_slov_num[slovo] = 1
+        else:
+            pocet_slov_num[slovo] = pocet_slov_num[slovo] + 1
+print(sum(pocet_slov_num.values()))
