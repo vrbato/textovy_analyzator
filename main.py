@@ -127,3 +127,23 @@ for slovo in TEXTS[int(text_choice)-1].split():
         else:
             pocet_slov_num[slovo] = pocet_slov_num[slovo] + 1
 print(sum(pocet_slov_num.values()))
+
+#suma čísel v textu
+sum_numbers = []
+for slovo in TEXTS[int(text_choice)-1].split():
+    if slovo.isnumeric():
+        sum_numbers.append(int(slovo))
+print(sum(sum_numbers))
+
+print(oddelovac,
+      f"LEN| {'OCCURENCES':^20} |NR.",
+      oddelovac,
+      sep="\n"
+)
+
+#četnost slov podle délky
+cetnost_slov = {}
+for slovo in TEXTS[int(text_choice)-1].split():
+    delka = len(slovo)
+    cetnost_slov[delka] = cetnost_slov.get(delka,0) + 1
+print(cetnost_slov.items())
