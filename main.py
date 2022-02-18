@@ -60,10 +60,11 @@ print(oddelovac)
 if not username in users:
     print("Unregistered user, terminating the program..")
     quit()
-elif username in users and password in users[username]["password"]:
-    print(f"Welcome to the app, {username}",f"We have 3 texts to be analyzed.", sep='\n')
-else:
+elif not len(password) == len(users[username]["password"]) and password in users[username]["password"]:
     print("Wrong password! Terminating the program...")
+    quit()
+else:
+    print(f"Welcome to the app, {username}",f"We have 3 texts to be analyzed.", sep='\n')
 
 print(oddelovac)
 
