@@ -144,6 +144,6 @@ print(oddelovac,
 #četnost slov podle délky
 cetnost_slov = {}
 for slovo in TEXTS[int(text_choice)-1].split():
-    delka = len(slovo)
+    delka = len(slovo.strip(",.!:").lower())
     cetnost_slov[delka] = cetnost_slov.get(delka,0) + 1
 print(cetnost_slov.items())
