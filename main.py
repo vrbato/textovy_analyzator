@@ -86,7 +86,7 @@ for slovo in TEXTS[int(text_choice)-1].split():
         pocet_slov[slovo] = 1
     else:
         pocet_slov[slovo] = pocet_slov[slovo] + 1
-print(sum(pocet_slov.values()))
+print(f"There are {sum(pocet_slov.values())} words in the selected text.")
 
 #počet slov s velkým písmenem
 pocet_slov_title = {}
@@ -96,7 +96,7 @@ for slovo in TEXTS[int(text_choice)-1].split():
             pocet_slov_title[slovo] = 1
         else:
             pocet_slov_title[slovo] = pocet_slov_title[slovo] + 1
-print(sum(pocet_slov_title.values()))
+print(f"There are {sum(pocet_slov_title.values())} titlecase words.")
 
 #počet slov BIG
 pocet_slov_BIG = {}
@@ -106,7 +106,7 @@ for slovo in TEXTS[int(text_choice)-1].split():
             pocet_slov_BIG[slovo] = 1
         else:
             pocet_slov_BIG[slovo] = pocet_slov_BIG[slovo] + 1
-print(sum(pocet_slov_BIG.values()))
+print(f"There are {sum(pocet_slov_BIG.values())} uppercase words.")
 
 #počet slov LOWER
 pocet_slov_LOWER = {}
@@ -116,7 +116,7 @@ for slovo in TEXTS[int(text_choice)-1].split():
             pocet_slov_LOWER[slovo] = 1
         else:
             pocet_slov_LOWER[slovo] = pocet_slov_LOWER[slovo] + 1
-print(sum(pocet_slov_LOWER.values()))
+print(f"There are {sum(pocet_slov_LOWER.values())} lowercase words.")
 
 #počet slov NUMERIC
 pocet_slov_num = {}
@@ -126,14 +126,14 @@ for slovo in TEXTS[int(text_choice)-1].split():
             pocet_slov_num[slovo] = 1
         else:
             pocet_slov_num[slovo] = pocet_slov_num[slovo] + 1
-print(sum(pocet_slov_num.values()))
+print(f"There are {sum(pocet_slov_num.values())} numeric strings.")
 
 #suma čísel v textu
 sum_numbers = []
 for slovo in TEXTS[int(text_choice)-1].split():
     if slovo.isnumeric():
         sum_numbers.append(int(slovo))
-print(sum(sum_numbers))
+print(f"The sum of all the numbers {sum(sum_numbers)}.")
 
 print(oddelovac,
       f"LEN| {'OCCURENCES':^20} |NR.",
@@ -146,4 +146,10 @@ cetnost_slov = {}
 for slovo in TEXTS[int(text_choice)-1].split():
     delka = len(slovo.strip(",.!:").lower())
     cetnost_slov[delka] = cetnost_slov.get(delka,0) + 1
-print(cetnost_slov.items())
+
+sorted_cetnost = sorted(list(cetnost_slov.items()), reverse=False)
+
+for i, tupl in sorted_cetnost:
+   print(
+       f"{i:>3}|{'*'*tupl:<22}|{tupl}"
+   )
