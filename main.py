@@ -70,12 +70,11 @@ print(oddelovac)
 
 # 1.2. práce s textem
 
-available_texts = [1,2,3]
 text_choice = input("Enter a number btw. 1 and 3 to select: ")
 if text_choice.isalpha():
     print("Wrong value! Should be only numerals! Terminating the program...")
     quit()
-elif not text_choice == "1" and text_choice == "2" and text_choice == "3":
+elif not int(text_choice) in range(1,4):
     print("Wrong range! Terminating the program...")
     quit()
 else:
