@@ -149,7 +149,7 @@ for slovo in TEXTS[int(text_choice)-1].split():
 
 sorted_cetnost = sorted(list(cetnost_slov.items()), reverse=False)
 
-for i, tupl in sorted_cetnost:
+for l, c in sorted_cetnost:
    print(
-       f"{i:>3}|{'*'*tupl:<22}|{tupl}"
+       f"{l:>3}|{'*'*c:<22}|{c}"
    )
