@@ -3,7 +3,7 @@ author = Tomáš Vrba
 '''
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
-Fossil Butte is a ruggedly impressive
+Fossil Butte is a ruggedly ! ! impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
 to an elevation of more than 7500 feet
@@ -79,9 +79,17 @@ elif not int(text_choice) in range(1,4):
     quit()
 else:
     print(oddelovac)
+
+#čistý_text
+cisty_text = []
+for slovo in TEXTS[int(text_choice)-1].split():
+    cista_slova = slovo.strip("!#$%&\()*+,-./:;<=>?@[]^_`{|}~")
+    if cista_slova !="":
+        cisty_text.append(slovo)
+
 #počet slov
 pocet_slov = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo not in pocet_slov:
         pocet_slov[slovo] = 1
     else:
@@ -90,7 +98,7 @@ print(f"There are {sum(pocet_slov.values())} words in the selected text.")
 
 #počet slov s velkým písmenem
 pocet_slov_title = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo.istitle():
         if slovo not in pocet_slov_title:
             pocet_slov_title[slovo] = 1
@@ -100,7 +108,7 @@ print(f"There are {sum(pocet_slov_title.values())} titlecase words.")
 
 #počet slov BIG
 pocet_slov_BIG = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo.isupper():
         if slovo not in pocet_slov_BIG:
             pocet_slov_BIG[slovo] = 1
@@ -110,7 +118,7 @@ print(f"There are {sum(pocet_slov_BIG.values())} uppercase words.")
 
 #počet slov LOWER
 pocet_slov_LOWER = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo.islower():
         if slovo not in pocet_slov_LOWER:
             pocet_slov_LOWER[slovo] = 1
@@ -120,7 +128,7 @@ print(f"There are {sum(pocet_slov_LOWER.values())} lowercase words.")
 
 #počet slov NUMERIC
 pocet_slov_num = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo.isnumeric():
         if slovo not in pocet_slov_num:
             pocet_slov_num[slovo] = 1
@@ -130,7 +138,7 @@ print(f"There are {sum(pocet_slov_num.values())} numeric strings.")
 
 #suma čísel v textu
 sum_numbers = []
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     if slovo.isnumeric():
         sum_numbers.append(int(slovo))
 print(f"The sum of all the numbers {sum(sum_numbers)}.")
@@ -143,7 +151,7 @@ print(oddelovac,
 
 #četnost slov podle délky
 cetnost_slov = {}
-for slovo in TEXTS[int(text_choice)-1].split():
+for slovo in cisty_text:
     delka = len(slovo.strip(",.!:").lower())
     cetnost_slov[delka] = cetnost_slov.get(delka,0) + 1
 
