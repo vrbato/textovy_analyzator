@@ -40,27 +40,22 @@ print(oddelovac_rovnase)
 print(f"{'-' * 17} {'TEXT Analysis':^10} {'-' * 17}")
 print(oddelovac_rovnase)
 
-#uživatel
-user1 = {"name" : "bob", "password" : "123"}
-user2 = {"name" : "ann", "password" : "pass123"}
-user3 = {"name" : "mike", "password" : "password123"}
-user4 = {"name" : "liz", "password" : "pass123"}
-
-users = {}
-users[user1["name"]] = user1
-users[user2["name"]] = user2
-users[user3["name"]] = user3
-users[user4["name"]] = user4
+users_credentials={
+    "bob" : "123",
+    "ann" : "pass123",
+    "mike" : "password123",
+    "liz" : "pass123"
+    }
 
 username = input("Enter your username: ")
 password = input("Enter your password: ")
 print(oddelovac)
 
 #ověření
-if not username in users:
+if not username in users_credentials.keys():
     print("Unregistered user, terminating the program..")
     quit()
-elif not len(password) == len(users[username]["password"]) and password in users[username]["password"]:
+elif not len(password) == len(users_credentials[username]) and password in users_credentials.values():
     print("Wrong password! Terminating the program...")
     quit()
 else:
